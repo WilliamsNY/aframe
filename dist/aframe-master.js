@@ -16940,7 +16940,6 @@ module.exports.Component = registerComponent('look-controls', {
     }
     deltaY = 2 * Math.PI * (evt.touches[0].pageX - this.touchStart.x) / canvas.clientWidth;
     deltaX = 2 * Math.PI * (evt.touches[0].pageY - this.touchStart.y) / canvas.clientWidth;
-    console.log(`deltaX: ${deltaX}`);
     direction = this.data.reverseTouchDrag ? 1 : -1;
     yawObject.rotation.y -= deltaY * 0.5 * direction;
     pitchObject.rotation.x += deltaX * 0.5 * direction * -1;
@@ -30189,7 +30188,7 @@ __webpack_require__(/*! ./core/a-mixin */ "./src/core/a-mixin.js");
 // Extras.
 __webpack_require__(/*! ./extras/components/ */ "./src/extras/components/index.js");
 __webpack_require__(/*! ./extras/primitives/ */ "./src/extras/primitives/index.js");
-console.log('A-Frame Version: 1.4.1 (Date 2023-04-07, Commit #1e6a3910)');
+console.log('A-Frame Version: 1.4.1 (Date 2023-04-07, Commit #2027a566)');
 console.log('THREE Version (https://github.com/supermedium/three.js):', pkg.dependencies['super-three']);
 console.log('WebVR Polyfill Version:', pkg.dependencies['webvr-polyfill']);
 module.exports = window.AFRAME = {
