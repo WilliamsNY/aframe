@@ -352,15 +352,21 @@ module.exports.Component = registerComponent('look-controls', {
     var direction;
     var canvas = this.el.sceneEl.canvas;
     var deltaY;
+    var deltaX;
     var yawObject = this.yawObject;
+    var pitchObject = this.pitchObject;
 
     if (!this.touchStarted || !this.data.touchEnabled) { return; }
 
     deltaY = 2 * Math.PI * (evt.touches[0].pageX - this.touchStart.x) / canvas.clientWidth;
+    deltaX = 2 * Math.PI * (evt.touches[0].pageY - this.touchStart.y) / canvas.clientWidth;
 
     direction = this.data.reverseTouchDrag ? 1 : -1;
-    // Limit touch orientaion to to yaw (y axis).
+
     yawObject.rotation.y -= deltaY * 0.5 * direction;
+    pitchObject.rotation.x += deltaX * 0.5 * direction * -1;
+    pitchObject.rotation.x = Math.max(-PI_2, Math.min(PI_2, pitchObject.rotation.x));
+
     this.touchStart = {
       x: evt.touches[0].pageX,
       y: evt.touches[0].pageY
